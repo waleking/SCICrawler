@@ -1,3 +1,9 @@
 *.log
 *.pyc
 .ipynb_checkpoints/
+.DS_Store
+ipython.sublime-project
+ipython.sublime-workspace
+sci.bloom_filter
+sci.status
+*.ipynb
