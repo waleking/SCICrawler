@@ -18,7 +18,7 @@ import logging
 import traceback
 
 #定义常量
-CONST_LIMIT = 2 # 每个query论文爬取上限
+CONST_LIMIT = 100 # 每个query论文爬取上限
 #----------------logger init------------W
 logging.basicConfig(level=logging.INFO,
                 format='%(asctime)s, %(filename)s:%(lineno)d, %(levelname)s: %(message)s',
@@ -83,7 +83,7 @@ try:
             try:
                 driver.get(url)
                 title = driver.find_element_by_xpath('//*[@id="records_form"]/div/div/div/div[1]/div/div[1]').text
-                
+
                 #检查是否已经下载过
                 if title not in bf:
                     logging.info('processing: <'+title+'>')

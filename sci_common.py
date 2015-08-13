@@ -114,7 +114,7 @@ querywords = [
                  "low-manpower ground operations",
                  "Clean pad minimal infrastructure operations",
                  "aircraft-like operations",
-                 "Streamlined “clean pad” operations",
+                 "Streamlined clean pad operations",
                  "reducing infrastructure and manpower requirements",
                  "enabling flight from a wide range of locations",
                  "lean operations",
@@ -123,8 +123,8 @@ querywords = [
                  "Cycle of Prep Launch Recovery and Turnaround within Single Day",
                  "Rapid Turn Reduces Manpower",
                  "Few Facilities Small Crew Size",
-                 "Clean pad - rapid throughput",
-                 "Ops Control Center – like aircraft",
+                 "Clean pad rapid throughput",
+                 "Ops Control Center like aircraft",
                  "Containerized payloads",
                  "Standard interfaces processes",
                  "Low man-power aircraft-like operations"
@@ -315,7 +315,11 @@ def submitForm(driver , query):
     form = driver.find_element_by_name("value(input1)")
     #form = WebDriverWait(driver,60).until(EC.presence_of_element_located((By.NAME, "value(input1)")))
     form.clear()
-    form.send_keys(query)
+    try:
+        form.send_keys(query)
+    except Exception , e:
+        logging.error('send keys error, query = ' + query)
+        logging.error(traceback.format_exc())
     form.submit()
     logging.info('form submmited')
 
